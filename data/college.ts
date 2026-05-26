@@ -132,9 +132,6 @@ export const colleges: College[] = [
       },
     ],
 
-    placements:
-      "Top recruiters include Google, Microsoft, Amazon, and Goldman Sachs with excellent average packages.",
-
     reviews: [
       {
         user: "Aman",
