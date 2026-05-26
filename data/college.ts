@@ -52,8 +52,7 @@ export const colleges: College[] = [
       "Top-ranked NIT with strong academics and placement records.",
 
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f",
-
+      "https://image-static.collegedunia.com/public/college_data/images/appImage/1575529948nitt.jpeg",
     courses: [
       {
         name: "Mechanical Engineering",
@@ -87,7 +86,7 @@ export const colleges: College[] = [
       "Renowned private institute with flexible academic structure.",
 
     image:
-      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f",
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=crop",
 
     courses: [
       {
