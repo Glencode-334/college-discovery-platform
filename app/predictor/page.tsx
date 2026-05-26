@@ -20,24 +20,54 @@ export default function PredictorPage() {
 
   const handlePredict = () => {
 
-    const numericRank = Number(rank);
+  const numericRank = Number(rank);
 
-    // Simple mock prediction logic
-    const filtered = colleges.filter((college) => {
+  let filtered = [];
 
-      if (numericRank <= 500) {
-        return college.rating >= 4.8;
-      }
+  // Top Tier
+  if (numericRank <= 500) {
 
-      if (numericRank <= 2000) {
-        return college.rating >= 4.5;
-      }
+    filtered = colleges.filter(
+      (college) =>
+        college.rating >= 4.8 &&
+        college.fees <= 300000
+    );
 
-      return college.rating >= 4.0;
-    });
+  }
 
-    setResults(filtered);
-  };
+  // Strong Tier
+  else if (numericRank <= 2000) {
+
+    filtered = colleges.filter(
+      (college) =>
+        college.rating >= 4.5 &&
+        college.placementRate.includes("9")
+    );
+
+  }
+
+  // Mid Tier
+  else if (numericRank <= 5000) {
+
+    filtered = colleges.filter(
+      (college) =>
+        college.rating >= 4.2
+    );
+
+  }
+
+  // Wider Recommendation Pool
+  else {
+
+    filtered = colleges.filter(
+      (college) =>
+        college.rating >= 4.0
+    );
+
+  }
+
+  setResults(filtered);
+};
 
   return (
     <section className="space-y-8">
@@ -78,7 +108,9 @@ export default function PredictorPage() {
         <Button onClick={handlePredict}>
           Predict Colleges
         </Button>
-
+        <p className="text-sm text-gray-500">
+            Predictions are based on mock rank analysis and placement trends.
+        </p>
       </div>
 
       {/* Results */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-
+import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
 export const metadata: Metadata = {
@@ -24,7 +25,8 @@ export default function RootLayout({
         <main className="max-w-7xl mx-auto px-4 py-6">
           {children}
         </main>
-
+        <Footer />
+        <Toaster />
       </body>
     </html>
   );

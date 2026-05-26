@@ -1,7 +1,8 @@
 "use client";
 
 import { useCompareStore } from "@/store/compare-store";
-
+import Link from "next/link";
+import { Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function ComparePage() {
@@ -30,19 +31,32 @@ export default function ComparePage() {
       {/* Empty State */}
       {comparedColleges.length === 0 ? (
 
-        <div className="rounded-2xl border p-10 text-center">
+  <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed p-16 text-center">
 
-          <h2 className="text-2xl font-semibold">
-            No colleges selected
-          </h2>
+    <Scale className="h-14 w-14 text-gray-400" />
 
-          <p className="mt-3 text-gray-500">
-            Add colleges to compare from the listing page.
-          </p>
+    <h2 className="mt-6 text-2xl font-semibold">
+      No colleges selected
+    </h2>
 
-        </div>
+    <p className="mt-3 max-w-md text-gray-500">
 
-      ) : (
+      Start comparing colleges by adding them
+      from the colleges listing page.
+
+    </p>
+
+    <Link href="/colleges">
+
+      <Button className="mt-6">
+        Browse Colleges
+      </Button>
+
+    </Link>
+
+  </div>
+
+) : (
 
         <div className="overflow-x-auto">
 

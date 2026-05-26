@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
+import { toast } from "sonner";
 import {
   Card,
   CardContent,
@@ -27,10 +27,12 @@ export default function CollegeCard({
 
   const handleCompare = () => {
 
-    console.log("ADDING:", college.name);
+  addCollege(college);
 
-    addCollege(college);
-  };
+  toast.success(
+    `${college.name} added to compare`
+  );
+};
 
   return (
 

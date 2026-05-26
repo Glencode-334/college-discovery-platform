@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { colleges } from "@/data/college";
 
@@ -12,10 +12,23 @@ export default function CollegesPage() {
 
   // Search state
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
+
+  useEffect(() => {
+
+  const timer = setTimeout(() => {
+
+    setDebouncedSearch(search);
+
+  }, 300);
+
+  return () => clearTimeout(timer);
+
+}, [search]);
 
   // Filter colleges
   const filteredColleges = colleges.filter((college) =>
-    college.name.toLowerCase().includes(search.toLowerCase())
+    college.name.toLowerCase().includes(debouncedSearch.toLowerCase())
   );
 
   return (
