@@ -104,4 +104,43 @@ export const colleges: College[] = [
       },
     ],
   },
+
+  {
+    id: "4",
+
+    name: "IIT Bombay",
+
+    location: "Mumbai, Maharashtra",
+
+    fees: 280000,
+
+    rating: 4.9,
+
+    placementRate: "96%",
+
+    image:
+      "https://wallpaperaccess.com/full/8637655.jpg",
+
+     description:
+      "IIT Bombay is one of India's premier engineering institutes known for innovation, research, and excellent placements.",
+
+    courses: [
+      {
+        name: "Computer Science",
+        duration: "4 Years",
+        fees: 350000,
+      },
+    ],
+
+    placements:
+      "Top recruiters include Google, Microsoft, Amazon, and Goldman Sachs with excellent average packages.",
+
+    reviews: [
+      {
+        user: "Aman",
+        rating: 5,
+        comment: "Fantastic coding culture.",
+      },
+    ],
+  },
 ];

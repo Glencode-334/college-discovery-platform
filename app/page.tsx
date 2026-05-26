@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 export default function HomePage() {
   return (
     <section className="py-24">
@@ -25,13 +26,14 @@ export default function HomePage() {
         </p>
 
         {/* CTA Button */}
-        <div className="mt-10">
+        <div className="mt-6">
 
-          <Link
-            href="/colleges"
-            className="inline-flex items-center rounded-lg bg-black px-6 py-3 text-white font-medium hover:bg-gray-800 transition-colors"
-          >
-            Explore Colleges
+          <Link href="/colleges">
+
+            <Button size="lg">
+              Explore Colleges
+            </Button>
+
           </Link>
 
         </div>

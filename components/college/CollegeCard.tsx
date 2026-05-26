@@ -27,16 +27,20 @@ export default function CollegeCard({
 
   const handleCompare = () => {
 
-  addCollege(college);
+  const added = addCollege(college);
 
-  toast.success(
-    `${college.name} added to compare`
-  );
+  if (added) {
+
+    toast.success(
+      `${college.name} added to compare`
+    );
+
+  }
 };
 
   return (
 
-    <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
       {/* Image */}
       <Link href={`/colleges/${college.id}`}>

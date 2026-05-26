@@ -1,11 +1,11 @@
 import { create } from "zustand";
-
+import { toast } from "sonner";
 import { College } from "@/types/college";
 
 interface CompareStore {
   comparedColleges: College[];
 
-  addCollege: (college: College) => void;
+  addCollege: (college: College) => boolean;
 
   removeCollege: (id: string) => void;
 }
@@ -15,23 +15,36 @@ export const useCompareStore =
 
     comparedColleges: [],
 
-    addCollege: (college) =>
+    addCollege: (college) => {
+
+      let added = false;
+
       set((state) => {
 
-        // Prevent duplicates
         const exists =
           state.comparedColleges.some(
             (item) => item.id === college.id
           );
 
         if (exists) {
+
+          toast.error(
+            "College already added"
+          );
+
           return state;
         }
 
-        // Limit to 3
         if (state.comparedColleges.length >= 3) {
+
+          toast.error(
+            "Maximum 3 colleges can be compared"
+          );
+
           return state;
         }
+
+        added = true;
 
         return {
           comparedColleges: [
@@ -39,7 +52,10 @@ export const useCompareStore =
             college,
           ],
         };
-      }),
+      });
+
+      return added;
+    },
 
     removeCollege: (id) =>
       set((state) => ({
